@@ -1,15 +1,17 @@
 import numpy as np
 import cv2 as cv
 
-def runGrabCut(image, boxes, indices):
-    mask = np.zeros(image.shape[:2], np.uint8)
-    bgdModel = np.zeros((1, 65), np.float64)
-    fgbModel = np.zeros((1, 65), np.float64)
+def runGrabCut(_image, boxes, indices):
+    imgs = []
 
     # ensure at least one detection exists
-    if len(indices) == 1:
+    if len(indices) > 0:
         # loop over the indices we are keeping
         for i in indices.flatten():
+            image = _image.copy()
+            mask = np.zeros(_image.shape[:2], np.uint8)
+            bgdModel = np.zeros((1, 65), np.float64)
+            fgbModel = np.zeros((1, 65), np.float64)
             # extract the bounding box coordinates
             rect = (boxes[i][0], boxes[i][1], boxes[i][2], boxes[i][3])
             print(rect)
@@ -20,10 +22,9 @@ def runGrabCut(image, boxes, indices):
             mask2 = np.where((mask == 2) | (mask == 0), 0, 1).astype('uint8')
             image = image * mask2[:, :, np.newaxis]
 
-            return image
+            imgs.append(image)
 
-    else:
-        print("not implemented")
+    return imgs
 
 if __name__ == '__main__':
     import argparse

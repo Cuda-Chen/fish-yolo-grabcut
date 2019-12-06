@@ -18,11 +18,12 @@ args = vars(ap.parse_args())
 img, boxes, idxs = yolo.runYOLOBoundingBoxes(args)
 print("boxes' length: ", len(boxes))
 print("idxs' shape: ", idxs.shape)
-image = GrabCut.runGrabCut(img, boxes, idxs)
+images = GrabCut.runGrabCut(img, boxes, idxs)
 
 # show the output image
 #cv.namedWindow("Image", cv.WINDOW_NORMAL)
 #cv.resizeWindow("image", 1920, 1080)
-cv.imshow("Image", image)
-cv.imwrite("grabcut.jpg", image)
+for i in range(len(images)):
+    #cv.imshow("Image", image)
+    cv.imwrite("grabcut{}.jpg".format(i), images[i])
 cv.waitKey(0)
