@@ -41,14 +41,15 @@ if __name__ == '__main__':
 
     import yolo
 
-    img, boxes, idxs = yolo.runYOLODetection(args)
+    img, boxes, idxs = yolo.runYOLOBoundingBoxes(args)
 
-    image = GrabCut(img, boxes, idxs)
+    images = runGrabCut(img, boxes, idxs)
 
-    # show the output image
+    # show the output images
     #cv.namedWindow("Image", cv.WINDOW_NORMAL)
     #cv.resizeWindow("image", 1920, 1080)
-    cv.imshow("Image", image)
-    cv.imwrite("predictions.jpg", image)
+    for i in range(len(images)):
+        cv.imshow("Image{}".format(i), images[i])
+        cv.imwrite("grabcut{}.jpg".format(i), images[i])
     cv.waitKey(0)
 

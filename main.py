@@ -2,7 +2,7 @@
 
 import argparse
 import cv2 as cv
-from yoloUtils import yolo, GrabCut
+from utils import yolo, GrabCut
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True,

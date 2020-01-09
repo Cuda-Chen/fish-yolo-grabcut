@@ -10,4 +10,4 @@ Then type the following commands (assuming you are using `conda`):
 $ conda create -n fish-yolo-grabcut python=3.6 pip 
 $ conda activate fish-yolo-grabcut
 $ pip install -r requirements.txt
-$ python yolo.py --image ./images/DSC_0061.JPG --yolo yolo-fish
+$ python main.py --image ./images/DSC_0061.JPG --yolo yolo-fish
