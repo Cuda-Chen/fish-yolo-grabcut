@@ -22,5 +22,7 @@ result_images = GrabCut.runGrabCut(image, boxes, idxs)
 
 st.write("")
 st.write("finish grabcut")
+st.write(f"There are {len(result_images)} segmented fish image. Each listed as below:")
 for i in range(len(result_images)):
-    cv.imwrite(f'grabcut{i}.jpg', result_images[i])
+    #cv.imwrite(f'grabcut{i}.jpg', result_images[i])
+    st.image(result_images[i], channels="BGR", use_column_width=True)
