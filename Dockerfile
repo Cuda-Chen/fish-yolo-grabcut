@@ -15,9 +15,13 @@ RUN bash -c 'echo -e "\
 enableCORS = false\n\
 " > /root/.streamlit/config.toml'
 # install Python and Pip
+#
+# NOTE: libSM.so.6 is required for OpenCV Docker
+# or you will get seg fault when import OpenCV
 RUN apt-get update && \
     apt-get install -y \
-    python3.7 python3-pip
+    python3.7 python3-pip \
+    libsm6 libxext6 libxrender-dev
 
 # expose port 8501 for streamlit
 EXPOSE 8501
