@@ -14,7 +14,7 @@ Then, use `gdown` to download the pretrained weights from [here](https://drive.g
 $ gdown --output ./yolo-fish/fish.weights --id 1L6JgzbFhC7Bb_5w_V-stAkPSgMplvsmq
 ```
 
-Next, choose one of the following approached you like.
+Next, choose one of the following approaches you like.
 
 ## 1. Command Line Approach
 ```
