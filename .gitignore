@@ -133,3 +133,4 @@ dmypy.json
 
 # ignore JPG images except of example image
 *.jpg
+!七星斑.jpg
