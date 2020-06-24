@@ -1,7 +1,10 @@
 # Fish YOLO GrabCut
 YOLOv3 object detection then use GrabCut to do semantic segmentation to fish market images.
 
-# Set up and Run Demo
+# Demo on Heroku
+I have deployed this project on Heroku. You can try here: https://fish-yolo-grabcut.herokuapp.com/
+
+# Set up and Run Demo Locally
 First, create a virtual environment and install the dependencies (assume you are using `conda`):
 ```
 $ conda create -n fish-yolo-grabcut python=3.6 pip 
